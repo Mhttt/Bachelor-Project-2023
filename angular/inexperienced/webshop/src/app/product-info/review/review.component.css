@@ -1,0 +1,11 @@
+.review {
+    padding: 32px;
+    background-color: #fbfbfb;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    margin-bottom: 8px;
+}

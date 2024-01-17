@@ -1,0 +1,19 @@
+<main>
+    <div class="container">
+        <h2>CART</h2>
+
+        <p class="cart-description">
+            Take a look at what you have in your cart so far and order when
+            you feel ready
+        </p>
+
+        <h3 *ngIf="items.length === 0">Your cart is empty</h3>
+
+        <app-cart-item style="width: 100%" *ngFor="let item of items" [item]="item" />
+
+        <div class="checkout">
+            <h2>TOTAL {{total}} USD</h2>
+            <button (click)="purchase()">GO TO CHECKOUT</button>
+        </div>
+    </div>
+</main>

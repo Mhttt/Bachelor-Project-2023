@@ -1,0 +1,46 @@
+<form [formGroup]="registerForm" novalidate>
+    <div class="container">
+        <h2>REGISTER</h2>
+        <p>Register to leave reviews and comments</p>
+
+        <input formControlName="username" name="username" type="text" class="form-field" placeholder="Your name"
+            required />
+        <div *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)"
+            class="alert alert-danger">
+            Name is required and should be at minimum 6 characters.
+        </div>
+
+        <input formControlName="email" name="email" type="text" class="form-field" placeholder="Your email" required />
+        <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+            class="alert alert-danger">
+            Email is required and should be a valid e-mail.
+        </div>
+
+        <input formControlName="password" name="passowrd" type="password" class="form-field" placeholder="Your password"
+            required />
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+            class="alert alert-danger">
+            Password should be at minimum 8 characters long.
+        </div>
+
+        <input formControlName="password_repeat" name="password_repeat" type="password" class="form-field"
+            placeholder="Repeat password" required />
+
+
+
+        <div *ngIf="registerForm.controls['password_repeat'].invalid && (registerForm.controls['password_repeat'].dirty || registerForm.controls['password_repeat'].touched)"
+            class="alert alert-danger">
+
+            <p *ngIf="!registerForm.controls['password_repeat'].hasError('notEqual')">
+                Repeat password should be at minimum 8 characters long.
+            </p>
+
+            <p *ngIf="registerForm.controls['password_repeat'].hasError('notEqual')">
+                Repeat password must equal password
+            </p>
+        </div>
+
+        <button (click)="onSubmit()" class="login-button">Register</button>
+        <button [routerLink]="'/login'" class="login-button">Or login</button>
+    </div>
+</form>

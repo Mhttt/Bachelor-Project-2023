@@ -1,0 +1,12 @@
+.container {
+	height: 50px;
+	background-color: #CE9898;
+}
+
+.text {
+	color: #000000;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+	line-height: 50px;
+}

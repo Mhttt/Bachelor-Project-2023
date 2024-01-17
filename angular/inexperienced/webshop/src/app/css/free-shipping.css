@@ -1,0 +1,26 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 200;
+    background-color: rgb(242, 136, 136);
+    margin-bottom: 0px;
+}
+
+header:hover{
+    cursor:pointer
+}
+
+header {
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    color: white;
+    padding-left: 10px;
+    font-size: 22px;
+}

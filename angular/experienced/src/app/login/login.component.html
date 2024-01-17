@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Login</h2>
+  <p>Register to leave reviews and comments</p>
+  <form #userForm="ngForm" (ngSubmit)="loginUser()">
+    <input
+      [(ngModel)]="user.username"
+      type="text"
+      id="username"
+      name="username"
+      class="form-field"
+      placeholder="Your username"
+      minlength="4"
+      required
+    />
+    <input
+      [(ngModel)]="user.password"
+      type="password"
+      id="password"
+      name="password"
+      class="form-field"
+      placeholder="Your password"
+      minlength="8"
+      required
+    />
+    <button type="submit" class="login-button">Login</button>
+  </form>
+</div>

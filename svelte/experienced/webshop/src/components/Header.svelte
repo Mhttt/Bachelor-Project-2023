@@ -1,0 +1,134 @@
+<script lang="ts">
+	import Cookies from 'js-cookie';
+	import { onMount } from 'svelte';
+  import {loggedInUser} from '../stores';
+
+	let freeShipping = false;
+  let user: string;
+  loggedInUser.subscribe(userName => {
+    user = userName
+  })
+
+	onMount(async () => {
+		const cookie = Cookies.get('freeshipping');
+		if (cookie) {
+			// The cookie exit
+			freeShipping = cookie === 'true' ? true : false;
+		} else {
+			// The cookie does not exist
+			const random_boolean = Math.random() < 0.5;
+			Cookies.set('freeshipping', random_boolean ? 'true' : 'false');
+			freeShipping = random_boolean;
+		}
+	});
+</script>
+
+{#if freeShipping}
+	<div class="freeshippingheader">CONGRATULATIONS YOU GOT FREE SHIPPING</div>
+{/if}
+
+<header>
+	<div class="text-icon">
+		<button class="svg-button">
+			<svg
+				version="1.1"
+				x="0px"
+				y="0px"
+				viewBox="0 0 1000 1000"
+				enable-background="new 0 0 1000 1000"
+				xml:space="preserve"
+				width="20px"
+			>
+				<g>
+					<path d="M497.3,703.9" />
+					<path
+						d="M201.8,474.2c-2.7,0-4.8,0.4-6.4,1.1c2.2-0.7,4.6-1.1,7.1-1.1H201.8L201.8,474.2z M940.7,768.6c0.1-1.4,0.2-2.7,0.5-4C940.9,765.2,940.8,766.4,940.7,768.6L940.7,768.6z M990,224.8c0-0.1,0-0.1,0-0.2v-0.6C990,224.2,990,224.5,990,224.8L990,224.8z M940.7,224.7c0,0.1,0,0.1,0,0.2c0-0.3,0-0.6,0-0.9V224.7L940.7,224.7z"
+					/>
+					<path
+						d="M970.4,964.3c-6.9-51.7-22.1-101.5-45.1-148.3c-4.5-9.1-9.3-18.1-14.3-26.9c0,0,0-0.1-0.1-0.1c-21.9-37.1-48.7-71.5-80-102.2l0,0c-6.8-6.7-13.8-13.2-21-19.5c-51.4-45.1-110.8-78.5-174.2-98.8c11.5-6.4,22.6-13.5,33.2-21.3c12.1-8.9,23.7-18.9,34.5-29.7c57.1-57.1,88.5-133,88.5-213.8c0-80.8-31.5-156.7-88.5-213.8C647.4,33.9,573.2,2.5,494.1,1.4c-1.3,0-2.5,0-3.8,0c-1.3,0-2.5,0-3.8,0c-79.1,1.1-153.3,32.5-209.4,88.5c-57.1,57.1-88.5,133-88.5,213.8c0,80.8,31.5,156.7,88.5,213.8c10.9,10.9,22.4,20.8,34.5,29.7c10.6,7.9,21.7,15,33.2,21.3c-63.3,20.3-122.7,53.8-174.2,98.8c-7.2,6.3-14.2,12.8-21,19.5c-31.3,30.7-58.2,65.2-80.1,102.3c-5,8.8-9.8,17.8-14.3,26.9c-23,46.7-38.2,96.6-45.1,148.3c-2.2,16.6,9.4,31.8,25.9,34c1.4,0.2,2.7,0.3,4.1,0.3c1.2,0,2.4-0.1,3.6-0.2c12-2.6,21.6-12.4,23.5-25.2c13.9-95.6,59.5-182.5,125-248.7C270.2,646,376,596.6,490.3,596.4h0.6c114.1,0.4,219.7,49.7,297.3,128.1c65.5,66.2,111.1,153.1,125,248.7c1.9,12.8,11.5,22.5,23.4,25.2c0,0,0,0,0.1,0c1.2,0.2,2.4,0.2,3.6,0.2c1.3,0,2.7-0.1,4.1-0.3C961,996.1,972.6,980.9,970.4,964.3L970.4,964.3z M489.7,545.6c-0.6,0-1.2,0-1.8,0c-112.8-0.8-213.4-79.2-240.9-184.4c-0.3-1.1-0.6-2.3-0.9-3.5c-4.3-17.4-6.6-35.4-6.6-54c0-18.6,2.3-36.8,6.6-54.5c0.3-1.2,0.6-2.4,0.9-3.5C274.6,137.9,376.1,52.2,489.7,52.2h1.3c113.6,0,215.1,85.7,242.8,193.5c0.3,1.2,0.6,2.3,0.9,3.5c4.3,17.7,6.6,36,6.6,54.5c0,18.6-2.3,36.6-6.6,54c-0.3,1.2-0.6,2.3-0.9,3.5c-27.5,105.2-128.1,183.6-240.9,184.4C491.8,545.6,490.7,545.6,489.7,545.6L489.7,545.6z"
+					/>
+				</g>
+			</svg>
+		</button>
+		<p class="white-text"><a style="color: white;" href={user !== undefined ? "/register": "/login"}>{user ?? ''}</a></p>
+	</div>
+	<h2 class="white-text shop-title" style="padding-right: 60px">
+		<a style="color: white;" href="/">WEBSHOP</a>
+	</h2>
+	<div class="text-icon">
+		<button class="svg-button">
+			<svg
+				fill="#000000"
+				version="1.1"
+				id="Capa_1"
+				width="20px"
+				viewBox="0 0 902.86 902.86"
+				xml:space="preserve"
+			>
+				<g>
+					<g>
+						<path
+							d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
+M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"
+						/>
+						<path
+							d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
+c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
+c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
+C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
+c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
+M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
+S619.162,694.432,619.162,716.897z"
+						/>
+					</g>
+				</g>
+			</svg>
+		</button>
+		<p class="white-text"><a style="color: white;" href="/cart">Cart</a></p>
+	</div>
+</header>
+
+<style>
+	.freeshippingheader {
+		width: 100%;
+		line-height: 40px;
+		text-align: center;
+		background-color: coral;
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		background-color: black;
+		box-sizing: border-box;
+	}
+
+	.shop-title {
+		align-self: center;
+	}
+
+	.text-icon {
+		display: flex;
+		align-items: center;
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
+	path {
+		fill: white;
+	}
+
+	.white-text {
+		color: white;
+		padding-left: 10px;
+		font-size: 22px;
+	}
+
+	.svg-button {
+		background-color: transparent;
+		border-style: none;
+	}
+</style>

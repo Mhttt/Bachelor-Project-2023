@@ -1,0 +1,13 @@
+.freeshippingheader {
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  display: block;
+  box-sizing: border-box;
+  height: 40px;
+  font-weight: bold;
+  background-color: coral;
+  z-index: 200;
+  line-height: 40px;
+  text-align: center;
+}

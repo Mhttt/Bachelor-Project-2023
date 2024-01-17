@@ -1,0 +1,21 @@
+<form [formGroup]="loginForm" novalidate>
+    <div class="container">
+        <h2>LOGIN</h2>
+        <p>Login to leave reviews and comments</p>
+        <input formControlName="username" name="username" type="text" class="form-field" placeholder="Your name"
+            required />
+        <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+            class="alert alert-danger">
+            Name is required and should be at minimum 6 characters.
+        </div>
+
+        <input formControlName="password" name="passowrd" type="password" class="form-field" placeholder="Your password"
+            required />
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+            class="alert alert-danger">
+            Password should be at minimum 8 characters long.
+        </div>
+
+        <button (click)="onSubmit()" class="login-button">Login</button>
+    </div>
+</form>

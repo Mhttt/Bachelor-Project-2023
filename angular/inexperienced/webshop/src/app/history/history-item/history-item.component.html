@@ -1,0 +1,13 @@
+<div class="item-container">
+    <div class="item-info">
+        <img class="product-image" src={{image_url}} alt="bag" />
+        <div class="title-and-price-container">
+            <p>Order #{{id}}</p>
+            <p class="product-price">{{date.toLocaleDateString('de-DE', dateFormatOptions)}}</p>
+        </div>
+    </div>
+    <div class="price-order-container">
+        <h3>$ {{price}} USD</h3>
+        <button routerLink="/history/{{id}}">View Order</button>
+    </div>
+</div>

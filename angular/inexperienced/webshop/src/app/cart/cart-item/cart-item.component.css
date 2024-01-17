@@ -1,0 +1,46 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #F1F1F1;
+    padding: 8px;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+img {
+    width: 125px;
+}
+
+.actions {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trashcan-icon {
+    height: 35px;
+    width: 35px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+}
+
+::ng-deep .trashcan-icon>path {
+    fill: black;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}

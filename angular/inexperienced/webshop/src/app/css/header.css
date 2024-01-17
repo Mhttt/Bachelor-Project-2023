@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    margin-bottom: 32px;
+
+    background-color: black;
+}
+
+.shop-title {
+    align-self: center;
+}
+
+.text-icon {
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+path {
+    fill: white;
+}
+
+.white-text {
+    color: white;
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+.white-text:hover {
+    cursor: pointer;
+}
+
+.svg-button {
+    background-color: transparent;
+    border-style: none;
+}
+
+

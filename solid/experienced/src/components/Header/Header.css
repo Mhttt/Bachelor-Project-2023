@@ -1,0 +1,42 @@
+body {
+	font-family: "Inter";
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+	background-color: black;
+	margin-bottom: 32px;
+}
+
+.shop-title {
+	align-self: center;
+	cursor: pointer;
+}
+
+.text-icon {
+	display: flex;
+	align-items: center;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+path {
+	fill: white;
+}
+
+.white-text {
+	color: white;
+	padding-left: 10px;
+	font-size: 22px;
+	cursor: pointer;
+}
+
+.svg-button {
+	background-color: transparent;
+	border-style: none;
+}

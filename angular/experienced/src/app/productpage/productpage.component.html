@@ -1,0 +1,66 @@
+<main>
+  <!-- Product Information -->
+  <div class="product">
+    <div class="product-image">
+      <img
+        src="{{
+          product ? product.image_url : 'https://picsum.photos/650/650'
+        }}"
+        alt="Product Image"
+      />
+    </div>
+
+    <div class="product-info">
+      <h3>{{ product?.name }}</h3>
+      <p>{{ product?.short_description }}</p>
+
+      <h2>{{ product?.price }} USD</h2>
+      <button class="product-item-buttons" (click)="addProductToCart(product?._id)">Add to Cart</button>
+
+      <h4>Description</h4>
+      <p>{{ product?.long_description }}</p>
+    </div>
+  </div>
+  <!-- Reviews -->
+  <h1>Product Reviews</h1>
+
+  <div class="reviews">
+    <div class="review" *ngFor="let review of reviews; index as i">
+      <div
+        class="stars"
+        *ngFor="let stars of [].constructor(review?.rating); index as i"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path
+            class="star"
+            d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"
+          />
+        </svg>
+      </div>
+      <p>
+        {{ review?.comment }}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="isLoggedIn(); addReview">
+    <h1>Leave a Review</h1>
+
+    <section class="user-input">
+      <select #stars (change)="onSelected(stars.value)" class="input-stars">
+        <option value="">-- Please choose an option --</option>
+        <option value="1">1 Star</option>
+        <option value="2">2 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="5">5 Stars</option>
+      </select>
+
+      <textarea #userInput
+      (change)="onComment(userInput.value)"
+        class="input-feedback"
+        placeholder="Write what you think about the product"
+      ></textarea>
+      <button class="product-item-buttons" (click)="postReview()">Submit Review</button>
+    </section>
+  </div>
+</main>

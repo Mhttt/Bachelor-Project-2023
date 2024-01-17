@@ -1,0 +1,52 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    row-gap: 16px;
+}
+
+.title-and-description {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}
+
+.title-and-description h2 {
+    align-self: center;
+}
+
+.outer-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.checkout>h2 {
+    font-weight: normal;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border-style: none;
+}
+
+button:hover {
+    cursor: pointer;
+}

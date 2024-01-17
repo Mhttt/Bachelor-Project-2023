@@ -1,0 +1,23 @@
+
+<div class="image-container">
+  <img class="image" src="/assets/images/bag_image_frontpage.png" alt="frontpage image" />
+</div>
+
+<div class="product-info">
+  <h1>BRAND NEW PRODUCTS</h1>
+
+  <p class="product-title-description">
+    A wide selection of products can be found on our webshop
+  </p>
+</div>
+
+<div class="product-container">
+  <div class="product" *ngFor="let product of contents; index as i;">
+    <img src="{{product.image_url}}" alt="a randomly generated image" />
+    <a routerLink="/product/{{product._id}}" routerLinkActive="active"><button>View item</button></a>
+    <p class="product-description">{{product.name}}</p>
+    <p class="product-price">{{product.price}} USD</p>
+  </div>
+</div>
+
+<a routerLink="/all-products" routerLinkActive="active"><button class="view-all-btn">View All Items</button></a>

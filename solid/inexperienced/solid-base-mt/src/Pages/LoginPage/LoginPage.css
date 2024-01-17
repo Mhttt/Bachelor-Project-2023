@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.form-field {
+  background-color: rgba(231, 228, 228, 0.763);
+  margin-top: 15px;
+  border-radius: 5px;
+  border-style: none;
+  width: 650px;
+  padding: 10px 0px 10px 20px;
+}
+
+.login-button {
+  margin-top: 30px;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  border-style: none;
+  padding: 10px 100px 10px 100px;
+}
+
+button:hover {
+  cursor: pointer;
+}

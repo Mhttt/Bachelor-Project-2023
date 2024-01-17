@@ -1,0 +1,20 @@
+<div class="item">
+    <div class="display">
+        <img src={{item.image_url}} alt="bag" />
+
+        <div>
+            <h2>{{item.name}} x{{item.quantity}}</h2>
+            <p class="product-price">{{item.price}} ({{item.price * item.quantity}}) USD</p>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button (click)="removeItem()" class="trash-button">
+            <icon-trashcan class="trashcan-icon" />
+        </button>
+
+        <p>
+            Remove item
+        </p>
+    </div>
+</div>

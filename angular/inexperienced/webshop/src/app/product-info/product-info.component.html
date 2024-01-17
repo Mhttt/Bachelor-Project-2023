@@ -1,0 +1,66 @@
+<main>
+    <div class="wrapper">
+        <!-- Product Information -->
+        <div class="product" *ngIf="productById !== undefined">
+            <div class="product-image">
+                <!-- svelte-ignore a11y-img-redundant-alt -->
+                <img src={{productById.image_url}} alt="Product Image" />
+            </div>
+
+            <div class="product-info">
+                <h3>{{productById.name}}</h3>
+                <p>{{productById.short_description}}</p>
+
+                <h2>{{productById.price}} USD</h2>
+                <button class="product-item-buttons" (click)="addToCart()">Add to Cart</button>
+
+                <h4>Description</h4>
+                <p>
+                    {{productById.long_description}}
+                </p>
+            </div>
+        </div>
+
+        <h1>Product Reviews</h1>
+
+        <div class="reviews">
+            <app-review *ngFor="let review of reviews" [comment]="review.comment" [rating]="review.rating"
+                [rater]="review.rater" />
+        </div>
+
+        <p *ngIf="!reviews.length">This item has no reviews</p>
+
+        <!-- Leave a review -->
+        <h1>Leave a Review</h1>
+
+        <form [formGroup]="reviewForm" *ngIf="user">
+            <section class="user-input">
+                <select class="input-stars" formControlName="rating">
+                    <option [ngValue]="0">-- Please choose an option --</option>
+                    <option [ngValue]="1">1 Star</option>
+                    <option [ngValue]="2">2 Stars</option>
+                    <option [ngValue]="3">3 Stars</option>
+                    <option [ngValue]="4">4 Stars</option>
+                    <option [ngValue]="5">5 Stars</option>
+                </select>
+
+                <div *ngIf="reviewForm.controls['rating'].invalid && (reviewForm.controls['rating'].dirty || reviewForm.controls['rating'].touched)"
+                    class="alert alert-danger">
+                    A rating must be selected, choose 1 for the lowest rating and 5 for the highest.
+                </div>
+
+                <textarea class="input-feedback" placeholder="Write what you think about the product"
+                    formControlName="comment"></textarea>
+
+                <div *ngIf="reviewForm.controls['comment'].invalid && (reviewForm.controls['comment'].dirty || reviewForm.controls['comment'].touched)"
+                    class="alert alert-danger">
+                    A comment must be entered and must be at least 10 characters long.
+                </div>
+
+                <button class="product-item-buttons" (click)="addReview()">Submit Review</button>
+            </section>
+        </form>
+
+        <p *ngIf="!user" class="no-user">You must be logged in to leave a review</p>
+    </div>
+</main>

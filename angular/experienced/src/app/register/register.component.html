@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>REGISTER</h2>
+  <p>Register to leave reviews and comments</p>
+  <form #userForm="ngForm" (ngSubmit)="registerUser()">
+    <input
+      [(ngModel)]="user.username"
+      type="text"
+      id="username"
+      name="username"
+      class="form-field"
+      placeholder="Your name"
+      minlength="3"
+      required
+    />
+    <input
+      [(ngModel)]="user.email"
+      type="text"
+      id="email"
+      name="email"
+      class="form-field"
+      placeholder="Your email"
+      minlength="4"
+      required
+    />
+    <input
+      [(ngModel)]="user.password"
+      type="text"
+      id="password"
+      name="password"
+      class="form-field"
+      placeholder="Your password"
+      minlength="8"
+      type="password"
+      required
+    />
+    <input
+      [(ngModel)]="user.password_repeat"
+      type="text"
+      name="password_repeat"
+      id="password_repeat"
+      class="form-field"
+      minlength="8"
+      placeholder="Repeat password"
+      type="password"
+      required
+    />
+    <button type="submit" [disabled]="userForm.invalid" class="login-button">
+      Register
+    </button> 
+  </form>
+   <div *ngIf="isLoggedIn(); then logout; else login"></div>
+    <ng-template #login>
+      <button class="login-button" routerLink="/login">
+        Log in
+      </button>
+    </ng-template>
+    <ng-template #logout>
+      <button
+        class="login-button"
+        routerLink="/register"
+        (click)="logoutUser()"
+      >
+        Log out
+      </button>
+    </ng-template>
+</div>

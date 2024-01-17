@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="title-and-description">
+    <h2>HISTORY - ORDER #{{ order?._id }}</h2>
+    <p>
+      List of all items purchased on {{ order?.purchase_date }} with order ID
+      #{{ order?._id }}.
+    </p>
+  </div>
+  <div class="outer-item-container">
+    <button routerLink="/purchase-history"><- Go back</button>
+    <div class="item-container" *ngFor="let item of order?.items; index as i">
+      <div class="item-info">
+        <img class="product-image" src="{{ order?.image_url }}" alt="bag" />
+        <div class="title-and-price-container">
+          <p>{{ item.name }} X{{ item.quantity }}</p>
+          <p class="product-price">{{ item.price }} USD</p>
+        </div>
+      </div>
+    </div>
+    <p>TOTAL {{ getTotalPrice(order?.items) }} USD</p>
+  </div>
+</div>

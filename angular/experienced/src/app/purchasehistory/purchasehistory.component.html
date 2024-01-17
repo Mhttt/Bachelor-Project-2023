@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="title-and-description">
+    <h2>HISTORY</h2>
+    <p>Track your order history and view your latest purchases</p>
+  </div>
+  <div class="outer-item-container">
+    <div class="item-container" *ngFor="let order of purchaseOrders; index as i">
+      <div class="item-info">
+        <img class="product-image" src={{order.image_url}} alt="bag" />
+        <div class="title-and-price-container">
+          <p>ORDER #{{order._id}}</p>
+          <p class="product-price">{{formatPurchaseDate(order.purchase_date)}}</p>
+        </div>
+      </div>
+      <div class="price-order-container">
+        <h3>{{getTotalPrice(order.items)}} USD</h3>
+        <button routerLink="/purchase-order/{{ order._id }}" routerLinkActive="active" class="test">View Order</button>
+      </div>
+    </div>
+  </div>
+</div>

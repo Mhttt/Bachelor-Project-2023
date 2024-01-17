@@ -1,0 +1,69 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: black;
+}
+
+.shop-title {
+  align-self: center;
+}
+
+.text-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.text-icon p:hover {
+  cursor: pointer;
+}
+
+path {
+  fill: white;
+}
+
+.white-text {
+  color: white;
+  padding-left: 10px;
+  font-size: 22px;
+}
+
+.svg-button {
+  background-color: transparent;
+  border-style: none;
+}
+
+.svg-button:hover {
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  min-height: 90px;
+  width: 80%;
+  padding-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-mid-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-item {
+  width: 200px;
+  font-size: 18px;
+}
+
+.footer-item-webshop {
+  align-self: center;
+  font-size: 30px;
+}

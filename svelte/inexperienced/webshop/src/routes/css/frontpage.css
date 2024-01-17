@@ -1,0 +1,86 @@
+.image {
+    justify-content: center;
+    width: 1000px;
+    height: auto;
+}
+
+.image-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.product-title {
+    font-size: 36px;
+}
+
+.product-title-description {
+    font-size: 20px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.product-description {
+    font-size: 24px;
+    margin-top: 16px;
+}
+
+.product-price {
+    font-size: 20px;
+}
+
+.product {
+    width: 280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.product-container button {
+    margin-top: 210px;
+    font-size: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    width: 200px;
+    height: 45px;
+}
+
+.product-container button:hover {
+    cursor: pointer;
+    background-color: darkgrey;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    width: 1000px;
+    grid-row-gap: 16px;
+    margin-bottom: 72px;
+}
+
+.view-all-btn {
+    margin-bottom: 32px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border-style: none;
+    padding: 10px 100px 10px 100px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #1a1918;
+}
